@@ -101,9 +101,13 @@ Color Depth : 픽셀마다 할당된 bit
 ### Compiler
 프로그래밍 언어를 컴퓨터가 이해할 수 있는 언어로 변환해주는 컴퓨터 프로그램  
 C compiler는 C code를 machine code로 변환해줌 ex) GNU C Compiler, Clang
-
-### Three Steps of Build Process
-
+<p align="center">
+ <img width="550" src="image/IMG_0064.jpeg">
+ </p>
+### Three Steps of Build Process  
+<p align="center">
+ <img width="550" src="image/IMG_0065.jpeg">
+ </p>
 1. Preprocessing  
 * Removing comments (주석제거)
 * Including header files (헤더파일 포함)
@@ -125,7 +129,10 @@ object file(including CRT and libc) executable file로 묶는다.
 Executable File은 여러 object file들로부터 링크된 Instruction과 data이다.  
 실행되면, CRT에 entry function이 OS에 의해 불러진다.
 
-### Program Loading
+### Program Loading   
+<p align="center">
+ <img width="550" src="image/IMG_0066.jpeg">
+ </p>
 파일에서 메모리로 텍스트와 데이터 세그멘트를 복사한다.  
 * Text Area  
 프로그램에 instruction을 저장한다.
@@ -140,3 +147,6 @@ local variables을 저장한다. local variable은 function이 실행될때만 �
 재귀적으로 함수가 실행되어지면 stack의 크기가 점점 증가한다.  
 이때 스택이 Heap영역까지 커지면 이를 stack overflow라고 한다.  
 악의를 가진 해커가 buffer overflow 기술을 이용해 함수가 돌아가야할 위치를 overwrite 하는 것은 stack smashing 이라고 한다. 
+<p align="center">
+ <img width="550" src="image/IMG_0067.jpeg">
+ </p>
