@@ -43,7 +43,8 @@ n개의 비트를 이용해서 2^n개의 mapping을 하여 숫자들을 표현�
 <p align="center">
 <img width="550" src="image/IMG_0057.jpeg">
 </p>  
-문제점 : 0000과 1000이 모든 0을 의미함 (낭비)
+문제점 : 0000과 1000이 모든 0을 의미함 (낭비)  
+
 #### Signed Types : Two's Complement Method
 MSB가 0이면 이것을 그대로 해석하고 MSB가 1이라면 0과 1을 바꾼뒤 +1을 해서 해석한다. (이를 통해 Naïve method 문제점 해결)
 <p align="center">
