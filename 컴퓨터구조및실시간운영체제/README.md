@@ -41,7 +41,7 @@ n개의 비트를 이용해서 2^n개의 mapping을 하여 숫자들을 표현�
 #### Signed Types : Naïve methood
 8개의 비트중 가장 앞의 비트를 이용해서 (0:양수, 1:음수)를 결정하고 뒤 7개 비트를 이용해서 표현한다.
 <p align="center">
-<img width="550" src="image/IMG_0057.jpeg">
+<img width="330" height="330" src="image/IMG_0057.jpeg">
 </p>  
 문제점 : 0000과 1000이 모든 0을 의미함 (낭비)  
 
@@ -55,7 +55,7 @@ MSB가 0이면 이것을 그대로 해석하고 MSB가 1이라면 0과 1을 바�
 Little-Endian Ordering e.g.) Intel CPUs
 Big-Endian Ordering e.g.) Most ARM CPUs
 <p align="center">
- <img width="550" src="image/IMG_0059.jpeg">
+ <img width="550" height="330" src="image/IMG_0059.jpeg">
  </p>
 
 #### Integer Overflow and Underflow
