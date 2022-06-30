@@ -255,10 +255,12 @@ RISC : Load-store architecture
  <img width="550" src="image/IMG_0080.jpeg">
  </p>
  
-Pipelined Datapath. 
+Pipelined Datapath
+
  <p align="center">
  <img width="550" src="image/IMG_0081.jpeg">
  </p>
+ 
 - Pipeline Hazards
 
 1. 구조적인 Hazard
