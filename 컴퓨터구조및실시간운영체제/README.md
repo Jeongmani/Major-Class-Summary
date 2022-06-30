@@ -3,7 +3,7 @@
 ## Contents for Computer Architecture
 1. [Data Representation](#1-Data-Representation)
 2. [Building and Loading Programs](#2-Building-and-Loading-Programs)
-3. [Processor Architecture]
+3. [Processor Architecture](#3-Processor-Architecture)
 4. [Memory Subsystem]
 5. [I/O Devices]
 6. [Advanced Computer Architecture]
@@ -101,8 +101,15 @@ Color Depth : 픽셀마다 할당된 bit
 ### Compiler
 프로그래밍 언어를 컴퓨터가 이해할 수 있는 언어로 변환해주는 컴퓨터 프로그램  
 C compiler는 C code를 machine code로 변환해줌 ex) GNU C Compiler, Clang
+ <p align="center">
+ <img width="550" src="image/IMG_0064.jpeg">
+ </p>
 
-### Three Steps of Build Process
+### Three Steps of Build Process  
+
+ <p align="center">
+ <img width="550" src="image/IMG_0065.jpeg">
+ </p>    
 
 1. Preprocessing  
 * Removing comments (주석제거)
@@ -125,7 +132,12 @@ object file(including CRT and libc) executable file로 묶는다.
 Executable File은 여러 object file들로부터 링크된 Instruction과 data이다.  
 실행되면, CRT에 entry function이 OS에 의해 불러진다.
 
-### Program Loading
+### Program Loading   
+
+ <p align="center">
+ <img width="550" src="image/IMG_0067.jpeg">
+ </p>
+
 파일에서 메모리로 텍스트와 데이터 세그멘트를 복사한다.  
 * Text Area  
 프로그램에 instruction을 저장한다.
@@ -140,3 +152,93 @@ local variables을 저장한다. local variable은 function이 실행될때만 �
 재귀적으로 함수가 실행되어지면 stack의 크기가 점점 증가한다.  
 이때 스택이 Heap영역까지 커지면 이를 stack overflow라고 한다.  
 악의를 가진 해커가 buffer overflow 기술을 이용해 함수가 돌아가야할 위치를 overwrite 하는 것은 stack smashing 이라고 한다. 
+
+ <p align="center">
+ <img height="220" src="image/IMG_0068.jpeg">
+ </p>
+
+
+## 3. Processor Architecture
+
+#### Bus-based Computer Architecture
+* System Bus
+Connects CPU,Memory and I/O Deviced  
+Bus is shared medium  
+
+#### Inside a CPU
+PC (Program Counter) : 다음 instruction의 주소를 나타낸다.  
+ALU (Arithmetic Logic Unit): arithmetic and logic operation을 지휘한다.  
+Registers : General-purpose register과 Special-purpose register가 존재.  
+
+#### Program Execution
+PC(프로그램 카운터)를 메모리 시작 instruction에 위치시킨다.  
+CPU가 PC에 instruction을 읽고 실행시킨다.  
+PC는 하드웨어에 의해 자동으로 다음을 지칭한다. 
+
+#### Registers
+CPU안에 있는 임시 저장장치이다. memory접근에 비해서 매우 빠르고 크기가 작다.   
+PC(Program Counter) , SP(Stack Pointer)와 같은 특별한 기능을 가진 레지스터도 있다.  
+
+#### Processor Architecture
+- Instruction Set Architecture(ISA) 
+CPU가 어떤 언어를 이해하는가  
+- Microarchitecture
+어떻게 CPU가 디자인 되는가  
+
+#### Instruction Set Arichitecture(ISA)
+하드웨어와 소프트웨어 사이의 인터페이스  (Instruction, Registers, Memory access mode, Endianness ....)
+ISA별로 다른 컴파일러가 필요. 같은 C코드지만 서로 다른 instruction을 가짐, 그렇기 때문에 Compiler developer는 ISA를 전부 이해해야함.
+
+#### Microarchitecture
+Chip-level Design (Cache, Pipelining, Out-of-order execution)
+
+#### Von Neumann vs Harvard
+- Von Neumann Architecture  
+Instruction과 Data를 위한 Memory가 하나만 존재한다(동시접근 X)  
+CPU와 Memory 사이 병목현상이 발생할 수 있다.  
+
+- Harvard Architecture  
+Instruction과 Data를 위한 Memory가 각각 존재한다(동시접근 O)    
+CPU와 memory사이에 병목현상이 발생이 적다.  
+
+#### Two Competing Paradigms when Designed ISAs
+-CISC(Complex Instruction Set Architecture)
+-RISC(Reduced Instruction Set Architecture)
+
+CISC : Register-memory architecture      
+RISC : Load-store architecture   
+
+#### Simple CPU with Single Cycle Datapath
+
+#### Five Stages of Datapath
+
+- Instruction Fetch : PC에서 instruction을 읽음, PC+=4.  
+- Instruction Decode : instruction을 이해하고 register를 읽음  
+- Execute : operation을 실행하고 arithmetic/logic operation을 실행  
+- Memory Access : Memory에서 Load하고 Store함.  
+- Write Back : 적절한 register에 결과를 기록함.  
+
+#### Pipelining
+
+- Pipeline Hazards
+1. 구조적인 Hazard
+HW resource 충돌, Harvard architecture가 pipelining 관점에서는 더 좋다.  
+
+2. 데이터 Hazard 
+Data dependencies (RAW, WAR, WAW). 
+
+3. 컨트롤 Hazard 
+Control uncertainty(if or else), Conditional branch.  
+Speculative execution (그냥 실행)  
+아무것도 하지 않는 것보다는 일단 실행하고, 잘못 예측한 경우 pipeline을 flush하고 다시 시작한다.  
+Branch Prediction. (History를 보고 결정)    
+historical data를 보고 가능성이 높은 곳을 결정한다.
+
+#### Out-Of-Order Execution
+instruction의 실행 순서를 바꾼다. (depends한 것을 뒤로 미룸)  
+
+#### Processor Performance Metrics
+* Latency(execution Time) 
+Time to finish a program, 프로그램의 관점  
+* Throughput(bandwidth)   
+특정 시간에 처리되어진 프로그램의 개수, 시스템의 관점  
