@@ -164,12 +164,16 @@ local variables을 저장한다. local variable은 function이 실행될때만 �
 * System Bus
 Connects CPU,Memory and I/O Deviced  
 Bus is shared medium  
-
+ <p align="center">
+ <img width="550" src="image/IMG_0069.jpeg">
+ </p
 #### Inside a CPU
 PC (Program Counter) : 다음 instruction의 주소를 나타낸다.  
 ALU (Arithmetic Logic Unit): arithmetic and logic operation을 지휘한다.  
 Registers : General-purpose register과 Special-purpose register가 존재.  
-
+ <p align="center">
+ <img width="550" src="image/IMG_0070.jpeg">
+ </p
 #### Program Execution
 PC(프로그램 카운터)를 메모리 시작 instruction에 위치시킨다.  
 CPU가 PC에 instruction을 읽고 실행시킨다.  
@@ -181,37 +185,57 @@ PC(Program Counter) , SP(Stack Pointer)와 같은 특별한 기능을 가진 레
 
 #### Processor Architecture
 - Instruction Set Architecture(ISA) 
-CPU가 어떤 언어를 이해하는가  
+CPU가 어떤 언어를 이해하는가 
+ <p align="center">
+ <img width="550" src="image/IMG_0071.jpeg">
+ </p
 - Microarchitecture
 어떻게 CPU가 디자인 되는가  
 
 #### Instruction Set Arichitecture(ISA)
 하드웨어와 소프트웨어 사이의 인터페이스  (Instruction, Registers, Memory access mode, Endianness ....)
 ISA별로 다른 컴파일러가 필요. 같은 C코드지만 서로 다른 instruction을 가짐, 그렇기 때문에 Compiler developer는 ISA를 전부 이해해야함.
-
+<p align="center">
+ <img width="550" src="image/IMG_0072.jpeg">
+ </p
 #### Microarchitecture
 Chip-level Design (Cache, Pipelining, Out-of-order execution)
-
+<p align="center">
+ <img width="550" src="image/IMG_0073.jpeg">
+ </p
+<p align="center">
+ <img width="550" src="image/IMG_0074.jpeg">
+ </p
 #### Von Neumann vs Harvard
 - Von Neumann Architecture  
 Instruction과 Data를 위한 Memory가 하나만 존재한다(동시접근 X)  
 CPU와 Memory 사이 병목현상이 발생할 수 있다.  
-
+<p align="center">
+ <img width="550" src="image/IMG_0075.jpeg">
+ </p
 - Harvard Architecture  
 Instruction과 Data를 위한 Memory가 각각 존재한다(동시접근 O)    
 CPU와 memory사이에 병목현상이 발생이 적다.  
-
+<p align="center">
+ <img width="550" src="image/IMG_0076.jpeg">
+ </p
 #### Two Competing Paradigms when Designed ISAs
 -CISC(Complex Instruction Set Architecture)
 -RISC(Reduced Instruction Set Architecture)
-
+<p align="center">
+ <img width="550" src="image/IMG_0077.jpeg">
+ </p
 CISC : Register-memory architecture      
 RISC : Load-store architecture   
 
 #### Simple CPU with Single Cycle Datapath
-
+<p align="center">
+ <img width="550" src="image/IMG_0078.jpeg">
+ </p
 #### Five Stages of Datapath
-
+<p align="center">
+ <img width="550" src="image/IMG_0079.jpeg">
+ </p
 - Instruction Fetch : PC에서 instruction을 읽음, PC+=4.  
 - Instruction Decode : instruction을 이해하고 register를 읽음  
 - Execute : operation을 실행하고 arithmetic/logic operation을 실행  
@@ -219,14 +243,24 @@ RISC : Load-store architecture
 - Write Back : 적절한 register에 결과를 기록함.  
 
 #### Pipelining
-
+<p align="center">
+ <img width="550" src="image/IMG_0080.jpeg">
+ </p
+Pipelined Datapath. 
+ <p align="center">
+ <img width="550" src="image/IMG_0081.jpeg">
+ </p
 - Pipeline Hazards
 1. 구조적인 Hazard
 HW resource 충돌, Harvard architecture가 pipelining 관점에서는 더 좋다.  
-
+<p align="center">
+ <img width="550" src="image/IMG_0082.jpeg">
+ </p
 2. 데이터 Hazard 
 Data dependencies (RAW, WAR, WAW). 
-
+<p align="center">
+ <img width="550" src="image/IMG_0083.jpeg">
+ </p
 3. 컨트롤 Hazard 
 Control uncertainty(if or else), Conditional branch.  
 Speculative execution (그냥 실행)  
@@ -239,6 +273,12 @@ instruction의 실행 순서를 바꾼다. (depends한 것을 뒤로 미룸)
 
 #### Processor Performance Metrics
 * Latency(execution Time) 
-Time to finish a program, 프로그램의 관점  
+Time to finish a program, 프로그램의 관점
+ <p align="center">
+ <img width="550" src="image/IMG_0084.jpeg">
+ </p
 * Throughput(bandwidth)   
 특정 시간에 처리되어진 프로그램의 개수, 시스템의 관점  
+ <p align="center">
+ <img width="550" src="image/IMG_0085.jpeg">
+ </p
