@@ -4,7 +4,7 @@
 1. [Data Representation](#1-Data-Representation)
 2. [Building and Loading Programs](#2-Building-and-Loading-Programs)
 3. [Processor Architecture](#3-Processor-Architecture)
-4. [Memory Subsystem]
+4. [Memory Subsystem](#4-Memory-Subsystem)
 5. [I/O Devices]
 6. [Advanced Computer Architecture]
 
@@ -297,3 +297,52 @@ Time to finish a program, 프로그램의 관점
  <p align="center">
  <img width="550" src="image/IMG_0086.jpeg">
  </p>
+
+
+## 4. Memory Subsystem
+
+#### RAM(Random Access Memory
+전원이 꺼지면 정보를 가지고 있을 수 없다. Bytes의 배열으로 system bus를 통해서 byte-addressable하다.  
+램(RAM)의 2가지 타입  
+1. SRAM(Stactic RAM)  
+DRAM보다 빠르고 비싸다. refresh가 필요하지 않고 파워를 적게 사용한다. 주로 on-chip cache나 scratchpad memory로 이용된다.  
+2. DRAM(Dynamic RAM)  
+SRAM보다 느리고 저렴하디. refresh가 필요하고 파워를 많이 사용한다. 주로 off-chip main memory로 이용된다.  
+
+#### Non-Volatile Memory
+- ROM(Read Only Memory)  
+Content들이 생산될때 hardwired 되어있다.  
+- PROM(Programmable ROM)  
+딱 한번 프로그램 가능하다.  
+- EPROM(Erasable PROM)  
+UV light를 통해 내용 전체를 지울 수 있는 PROM. 
+- EEPROM(Electrically Erasable PROM)   
+byte-level read, write가 가능하다.  Write할때 엄청 오래 걸린다.  
+
+- Flash Memory   
+page단위 writable(~KB), block단위 Erasable(~MB) pageㄹ를 쓰기전에 Block이 전부 지워져야함. 사용할 수록 닳아서 없어짐.  
+2가지 종류의 Flash Memory. 
+
+#### System Bus & Address Space
+Address Space는 CPU가 System bus를 통해서 보는 virtual space.  
+Assuming n-bit address bus and m-bit data bus. 
+n-bit의 CPU는 n-bit address bus, n-bit data bus, n-bit registers and ALUs. 
+
+#### Memory Map
+address space에 메모리 devices를 Mapping. 
+I/O devices들 또한 CPU에 의해서 mapped 허용  
+
+#### Timing between CPU
+- Asynchronous RAM
+CPU와 RAM이 독립적으로 실행됨.  
+- Synchronous RAM
+CPU와 RAM이 서로의 타이밍을 알고 실행됨.  
+
+#### CPU-RAM Performance Gap
+RAM latency는 심각한 병목현상을 격게된다. (Instruction Fetch, Load instruction, Store instruction)  
+
+#### Locality of Memory Accesses  
+프로그램의 메모리에 접근하는 패턴을 보면  
+- Temporal Locality(접근했던 곳을 또 접근한다.) ex) for문  
+- Spatial Locality(접근했던 곳의 근처를 접근한다.) ex) 배열의 item접근  
+
