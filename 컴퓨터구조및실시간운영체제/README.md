@@ -5,7 +5,7 @@
 2. [Building and Loading Programs](#2-Building-and-Loading-Programs)
 3. [Processor Architecture](#3-Processor-Architecture)
 4. [Memory Subsystem](#4-Memory-Subsystem)
-5. [I/O Devices](#5-I/O-Devices)
+5. [IO Devices](#5-IO-Devices)
 6. [Advanced Computer Architecture]
 
 ## Contents for Operating System(RTOS)
@@ -488,7 +488,7 @@ Write-through and No-wirte allocate를 함께 사용한다: 간단하지만 낮�
  <img width="550" height="300" src="image/IMG_0104.jpeg">
  </p>
 
-## 5. I/O Devices
+## 5. IO Devices
 
 #### System Bus and I/O Devices
 I/O devices는 memory같은 CPU의 주변 장치   
