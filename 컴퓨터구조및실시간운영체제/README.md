@@ -493,9 +493,17 @@ Write-through and No-wirte allocate를 함께 사용한다: 간단하지만 낮�
 #### System Bus and I/O Devices
 I/O devices는 memory같은 CPU의 주변 장치   
 Memory-mapped I/O는 device register들이 address space에 mapped된다.   
-
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0105.jpeg">
+ </p>
+ 
 #### Internal Bus vs External Bus
 
+ <p align="center">
+ <img width="550" src="image/IMG_0106.jpeg">
+ </p>
+ 
 #### Memory-Mapped I/O vs Port-Mapped I/O
 Memory-Mapped I/O.  
 -Device register들이 address space에 mapping 된어진다.  
@@ -519,4 +527,7 @@ CPU가 항상 바쁘지 않고, Interrupt service routine(or interrupt handler) 
 #### Memcpy vs DMA(Direct memory access)
 -Memcpy : device에서 CPU register로 Load하고 register에서 memory로 Store한다.   
 -DMA : CPU가 DMA controller에서 DMA를 요청한다. DMA controller는 device에서 memory로 복사한다. DMA controller는 CPU에게 끝을 알린다.    
- 
+
+<p align="center">
+ <img width="550" src="image/IMG_0107.jpeg">
+ </p>
