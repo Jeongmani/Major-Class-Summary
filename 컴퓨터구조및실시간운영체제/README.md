@@ -5,7 +5,7 @@
 2. [Building and Loading Programs](#2-Building-and-Loading-Programs)
 3. [Processor Architecture](#3-Processor-Architecture)
 4. [Memory Subsystem](#4-Memory-Subsystem)
-5. [I/O Devices]
+5. [I/O Devices](#5-I/O-Devices)
 6. [Advanced Computer Architecture]
 
 ## Contents for Operating System(RTOS)
@@ -300,8 +300,17 @@ Time to finish a program, 프로그램의 관점
 
 
 ## 4. Memory Subsystem
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0087.jpeg">
+ </p>
 
 #### RAM(Random Access Memory
+
+ <p align="center">
+ <img width="550" src="image/IMG_0088.jpeg">
+ </p>
+ 
 전원이 꺼지면 정보를 가지고 있을 수 없다. Bytes의 배열으로 system bus를 통해서 byte-addressable하다.  
 램(RAM)의 2가지 타입  
 1. SRAM(Stactic RAM)  
@@ -322,15 +331,27 @@ byte-level read, write가 가능하다.  Write할때 엄청 오래 걸린다.
 - Flash Memory   
 page단위 writable(~KB), block단위 Erasable(~MB) pageㄹ를 쓰기전에 Block이 전부 지워져야함. 사용할 수록 닳아서 없어짐.  
 2가지 종류의 Flash Memory. 
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0089.jpeg">
+ </p>
 
 #### System Bus & Address Space
 Address Space는 CPU가 System bus를 통해서 보는 virtual space.  
 Assuming n-bit address bus and m-bit data bus. 
 n-bit의 CPU는 n-bit address bus, n-bit data bus, n-bit registers and ALUs. 
-
+ 
+ <p align="center">
+ <img width="550" height="300" src="image/IMG_0090.jpeg">
+ </p>
+ 
 #### Memory Map
 address space에 메모리 devices를 Mapping. 
-I/O devices들 또한 CPU에 의해서 mapped 허용  
+I/O devices들 또한 CPU에 의해서 mapped 허용 
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0091.jpeg">
+ </p>
 
 #### Timing between CPU
 - Asynchronous RAM
@@ -340,15 +361,28 @@ CPU와 RAM이 서로의 타이밍을 알고 실행됨.
 
 #### CPU-RAM Performance Gap
 RAM latency는 심각한 병목현상을 격게된다. (Instruction Fetch, Load instruction, Store instruction)  
-
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0092.jpeg">
+ </p>
+ 
 #### Locality of Memory Accesses  
+
+ <p align="center">
+ <img width="550" src="image/IMG_0093.jpeg">
+ </p>
+ 
 프로그램의 메모리에 접근하는 패턴을 보면  
 - Temporal Locality(접근했던 곳을 또 접근한다.) ex) for문  
 - Spatial Locality(접근했던 곳의 근처를 접근한다.) ex) 배열의 item접근  
 
 #### Cache
 Cache는 마치 책상처럼, RAM을 모든 책을 가지고 있는 도서관 처럼 생각할 수 있다.  
-
+ 
+ <p align="center">
+ <img width="550" height="300" src="image/IMG_0094.jpeg">
+ </p>
+ 
 #### Basic Cache Operations
 CPU는 RAM에서 word(4byte)를 읽는다   
 - 이것이 캐시에 있으면 Hit이고, 그것을 그냥 읽는다.  
@@ -356,27 +390,62 @@ CPU는 RAM에서 word(4byte)를 읽는다
 
 #### Cache Management Policies
 
+ <p align="center">
+ <img width="550" src="image/IMG_0095.jpeg">
+ </p>
+ 
 #### Cache Size & Block size
+ 
+ <p align="center">
+ <img width="550" height="300" src="image/IMG_0096.jpeg">
+ </p>
+ 
 -Cache Size  
 Large cache size - higher hit ratio & more cost  
 Smaller cache size - lower hit ratio & less cost
 
-- Block size. 
+-Block size    
 Too large - 쓸모없는 데이터도 같이 캐시에 저장  
 Too small - spatial locality를 충족시키지 못함  
 
 #### Basic Cache Organization
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0097.jpeg">
+ </p>
+ 
 #### Cache Controller : Data Load to Cache
+
+ <p align="center">
+ <img width="550" src="image/IMG_0098.jpeg">
+ </p>
+ 
 #### Cache Controller : Hit Check
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0099.jpeg">
+ </p>
 
 #### Placement : Direct Mapped
 각각의 블록들이 저장될 곳이 정해져 있다.  
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0100.jpeg">
+ </p>
 
 #### Placement : Fully Associative
 블록들이 어디든 저장되어질 수 있다. 
 
+ <p align="center">
+ <img width="550" src="image/IMG_0101.jpeg">
+ </p>
+
 #### Placement : Set Associative 
 Set index를 가지고 블록들이 저장됨
+
+ <p align="center">
+ <img width="550" src="image/IMG_0102.jpeg">
+ </p>
 
 #### Replacement Policy
 -Direct mapped cahce : 희생되는 블록이 placement polict에 따라 자동으로 결정된다. (갈 곳이 정해져 있기 때문에) 
@@ -400,7 +469,7 @@ Separated architecture의 단점 : flexible하지 않고, 복잡하다.
 Write-through : cache와 memory를 동시에 업데이트한다.  
 Write-back : cache만 업데이트하고 나중에 희생될때 memory에 write한다. (Cache와 Memory의 내용이 일치하지 않는 것을 dirty라고 한다.)   
 
--Cache가 Miss 일떄 
+-Cache가 Miss 일떄   
 Write allocate: miss된 block에게 cache를 할당한다.   
 No-write allocate: 바로 Ram에 write한다.  
 
@@ -408,5 +477,46 @@ Write-back and Write allocate방식을 함께 사용한다: 더 복잡하지만 
 Write-through and No-wirte allocate를 함께 사용한다: 간단하지만 낮은 hit ratio가 예상된다.  
 
 #### Write Strategies
+ 
+ <p align="center">
+ <img width="550" src="image/IMG_0103.jpeg">
+ </p>
 
 #### Multi-level Caches and Memory Hierarchy
+
+ <p align="center">
+ <img width="550" height="300" src="image/IMG_0104.jpeg">
+ </p>
+
+## 5. I/O Devices
+
+#### System Bus and I/O Devices
+I/O devices는 memory같은 CPU의 주변 장치   
+Memory-mapped I/O는 device register들이 address space에 mapped된다.   
+
+#### Internal Bus vs External Bus
+
+#### Memory-Mapped I/O vs Port-Mapped I/O
+Memory-Mapped I/O.  
+-Device register들이 address space에 mapping 된어진다.  
+-다양한 device register들이 같은 방식으로 접근이 가능하다.   
+
+Port-Mapped I/O 
+-Device registers들이 별도의 I/O Space에 존재한다.  
+-I/O device를 읽고 쓰기 위한 특정한 instruction이 존재한다.  
+
+#### Volatile Keyword 
+device register를 접근하기 위해서는 항상 Volatile Keyword를 사용해야한다.  
+Volatile Keywordsms 최적화 기술을 사용하지 않는다는 의미  
+
+#### Polling vs Interrupt 
+- Polling  
+CPU가 항상 바쁘고 하드웨어의 보조가 필요 없다.  
+
+- Interrupt   
+CPU가 항상 바쁘지 않고, Interrupt service routine(or interrupt handler) function
+
+#### Memcpy vs DMA(Direct memory access)
+-Memcpy : device에서 CPU register로 Load하고 register에서 memory로 Store한다.   
+-DMA : CPU가 DMA controller에서 DMA를 요청한다. DMA controller는 device에서 memory로 복사한다. DMA controller는 CPU에게 끝을 알린다.    
+ 
