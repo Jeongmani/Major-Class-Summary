@@ -346,3 +346,67 @@ RAM latency는 심각한 병목현상을 격게된다. (Instruction Fetch, Load 
 - Temporal Locality(접근했던 곳을 또 접근한다.) ex) for문  
 - Spatial Locality(접근했던 곳의 근처를 접근한다.) ex) 배열의 item접근  
 
+#### Cache
+Cache는 마치 책상처럼, RAM을 모든 책을 가지고 있는 도서관 처럼 생각할 수 있다.  
+
+#### Basic Cache Operations
+CPU는 RAM에서 word(4byte)를 읽는다   
+- 이것이 캐시에 있으면 Hit이고, 그것을 그냥 읽는다.  
+- 이것이 캐시에 없으면 Miss이고, RAM에서 그것을 복사하고 캐시에서 읽는다.   
+
+#### Cache Management Policies
+
+#### Cache Size & Block size
+-Cache Size  
+Large cache size - higher hit ratio & more cost  
+Smaller cache size - lower hit ratio & less cost
+
+- Block size. 
+Too large - 쓸모없는 데이터도 같이 캐시에 저장  
+Too small - spatial locality를 충족시키지 못함  
+
+#### Basic Cache Organization
+#### Cache Controller : Data Load to Cache
+#### Cache Controller : Hit Check
+
+#### Placement : Direct Mapped
+각각의 블록들이 저장될 곳이 정해져 있다.  
+
+#### Placement : Fully Associative
+블록들이 어디든 저장되어질 수 있다. 
+
+#### Placement : Set Associative 
+Set index를 가지고 블록들이 저장됨
+
+#### Replacement Policy
+-Direct mapped cahce : 희생되는 블록이 placement polict에 따라 자동으로 결정된다. (갈 곳이 정해져 있기 때문에) 
+- Fully or set associative cache: 희생되는 블록을 자유롭게 정할 수 있다. (optimal replacement)
+
+#### optimal replacement algorithm
+- Random: 아무거나  
+- FIFO: First In First Out. 
+- LRU: Least Recently Used. 
+- LFU: Least Frequently Used. 
+- LRFU: Least Recently/Frequently Used. 
+
+#### Unified or Separated Cache 
+-Unified architecture: Data and instructions 이 같은 cache에 저장됨.  
+-Separated architecture : Data and instructions을 위한 cache가 따로 존재한다.  
+Separated architecture의 장점 : pipelining에 용의하다.   
+Separated architecture의 단점 : flexible하지 않고, 복잡하다.  
+
+#### Write Policy
+-Cache가 hit일때   
+Write-through : cache와 memory를 동시에 업데이트한다.  
+Write-back : cache만 업데이트하고 나중에 희생될때 memory에 write한다. (Cache와 Memory의 내용이 일치하지 않는 것을 dirty라고 한다.)   
+
+-Cache가 Miss 일떄 
+Write allocate: miss된 block에게 cache를 할당한다.   
+No-write allocate: 바로 Ram에 write한다.  
+
+Write-back and Write allocate방식을 함께 사용한다: 더 복잡하지만 높은 hit ratio를 기대할 수 있다.  
+Write-through and No-wirte allocate를 함께 사용한다: 간단하지만 낮은 hit ratio가 예상된다.  
+
+#### Write Strategies
+
+#### Multi-level Caches and Memory Hierarchy
