@@ -5,7 +5,7 @@
 2. [Building and Loading Programs](#2-Building-and-Loading-Programs)
 3. [Processor Architecture](#3-Processor-Architecture)
 4. [Memory Subsystem](#4-Memory-Subsystem)
-5. [I/O Devices]
+5. [I/O Devices](#5-I/O-Devices)
 6. [Advanced Computer Architecture]
 
 ## Contents for Operating System(RTOS)
@@ -487,3 +487,36 @@ Write-through and No-wirte allocate를 함께 사용한다: 간단하지만 낮�
  <p align="center">
  <img width="550" height="300" src="image/IMG_0104.jpeg">
  </p>
+
+## 5. I/O Devices
+
+#### System Bus and I/O Devices
+I/O devices는 memory같은 CPU의 주변 장치   
+Memory-mapped I/O는 device register들이 address space에 mapped된다.   
+
+#### Internal Bus vs External Bus
+
+#### Memory-Mapped I/O vs Port-Mapped I/O
+Memory-Mapped I/O.  
+-Device register들이 address space에 mapping 된어진다.  
+-다양한 device register들이 같은 방식으로 접근이 가능하다.   
+
+Port-Mapped I/O 
+-Device registers들이 별도의 I/O Space에 존재한다.  
+-I/O device를 읽고 쓰기 위한 특정한 instruction이 존재한다.  
+
+#### Volatile Keyword 
+device register를 접근하기 위해서는 항상 Volatile Keyword를 사용해야한다.  
+Volatile Keywordsms 최적화 기술을 사용하지 않는다는 의미  
+
+#### Polling vs Interrupt 
+- Polling  
+CPU가 항상 바쁘고 하드웨어의 보조가 필요 없다.  
+
+- Interrupt   
+CPU가 항상 바쁘지 않고, Interrupt service routine(or interrupt handler) function
+
+#### Memcpy vs DMA(Direct memory access)
+-Memcpy : device에서 CPU register로 Load하고 register에서 memory로 Store한다.   
+-DMA : CPU가 DMA controller에서 DMA를 요청한다. DMA controller는 device에서 memory로 복사한다. DMA controller는 CPU에게 끝을 알린다.    
+ 
