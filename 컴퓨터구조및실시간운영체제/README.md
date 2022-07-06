@@ -6,7 +6,7 @@
 3. [Processor Architecture](#3-Processor-Architecture)
 4. [Memory Subsystem](#4-Memory-Subsystem)
 5. [IO Devices](#5-IO-Devices)
-6. [Advanced Computer Architecture]
+6. [Advanced Computer Architecture](#6-Advanced-Computer-Architecture)
 
 ## Contents for Operating System(RTOS)
 1. [Process Management]
@@ -531,3 +531,5 @@ CPU가 항상 바쁘지 않고, Interrupt service routine(or interrupt handler) 
 <p align="center">
  <img width="550" src="image/IMG_0107.jpeg">
  </p>
+
+## 6. Advanced Computer Architecture
