@@ -533,3 +533,55 @@ CPU가 항상 바쁘지 않고, Interrupt service routine(or interrupt handler) 
  </p>
 
 ## 6. Advanced Computer Architecture
+
+#### Multicore
+
+ <p align="center">
+ <img width="550" src="image/IMG_0109.jpeg">
+ </p>
+ 
+여러개의 core들이 하나의 칩에 있음. 코어들 별로 private한 L1,L2 캐시가 있고 공용으로 사용되는 L3 캐시가 있음.   
+Multicore programming은 singlecore보다 복잡함.   
+- Cache coherence(Private 캐시가 서로 다른 값은가짐).  
+- Shared resource protection. 
+- Miltithreading.  
+
+<p align="center">
+ <img width="550" height="300" src="image/IMG_0110.jpeg">
+ </p>
+
+#### Reducing Execution Time using Multicore
+이상적인 경우(fully parallelizable)에는 1/cores로 줄어들지만 실제 경우에서는 그렇지 않음  
+* 암달의 법칙 (Amdahl's law)    
+
+<p align="center">
+ <img width="550" src="image/IMG_0111.jpeg">
+ </p>
+ 
+#### Big Little Architecture
+
+<p align="center">
+ <img width="550" src="image/IMG_0112.jpeg">
+ </p>
+ 
+Heterogeneous architecture (Performance, Efficiency)   
+-Performance cores, 빠르지만 많은 에너지를 사용  
+-Efficiency cores, 느리지만 적은 에너지를 사용   
+
+#### Lockstep Architecture 
+checker 코어와 master 코어가 동시에 같은 instruction을 실행하고 두개의 결과를 비교해서 hardware의 error를 찾아낸다.  
+timing diversity를 위해서 시간을 지연시킴 
+
+
+<p align="center">
+ <img width="550" height="300" src="image/IMG_0113.jpeg">
+ </p>
+
+#### GPU(Graphic Processing Unit) 
+방대한 양의 행렬계산을 위해 사용된다.  엄청나게 많은 수의 코어를 가지고 있지만 CPU를 돕기 위한 것들이다. CPU는 필수로 필요.  
+
+#### CUDA(Compute Unified Device Architecture) Language 
+
+<p align="center">
+ <img width="550" height="300" src="image/IMG_0114.jpeg">
+ </p>
