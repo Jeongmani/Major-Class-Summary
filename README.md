@@ -1,7 +1,7 @@
 # Major-Class-Summary
 
 학부에서 배운 전공과목을 정리
-주로 ** 컴퓨터, 자동차 ** 위주로 정리할 예정
+주로 **컴퓨터, 자동차** 위주로 정리할 예정
 
 ## Contents
 - :car: [자동차인공지능](https://github.com/Jeongmani/Major-Class-Summary/tree/main/%EC%9E%90%EB%8F%99%EC%B0%A8%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5)
