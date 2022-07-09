@@ -9,7 +9,7 @@
 6. [Advanced Computer Architecture](#6-Advanced-Computer-Architecture)
 
 ## Contents for Operating System(RTOS)
-1. [Process Management]
+1. [Process Management](#1-Process-Management)
 2. [Process Scheduling]
 3. [Virtual Meomory]
 4. [Inter-Process Communication]
@@ -18,6 +18,8 @@
 7. [Filesystem]
 8. [Device Driver]
 9. [Real-Time Scheduling]
+
+#  Computer Architecture
 
 ## 1. Data Representation
 Computer system에는 다양한 종류의 데이터가 존재한다.  
@@ -585,3 +587,7 @@ timing diversity를 위해서 시간을 지연시킴
 <p align="center">
  <img width="550" height="300" src="image/IMG_0114.jpeg">
  </p>
+
+# Operating System(RTOS)
+
+## 1. Process Management
